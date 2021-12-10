@@ -1,4 +1,5 @@
 # Simplest Programming Language
+<a href="readme-HN.md">हिन्दी के लिए यहाँ क्लिक करे</a>
 ### Hello Everyone
 
 - I am on the way to create my first programming language.
