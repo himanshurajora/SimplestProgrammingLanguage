@@ -4,12 +4,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "pnpm jest index.test.js"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "jest": "^27.4.5",
     "typescript": "^4.5.4"
   }
 }

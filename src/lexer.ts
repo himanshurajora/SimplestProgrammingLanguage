@@ -1,4 +1,7 @@
-
+// This is the interface for Tokens
+// This contains the token type and the lexeme (the actual value)
+// It can also contain the start index and the end index of the token
+// But as it is a simple compiler, we don't need to store these values
 declare interface Token {
     type: string
     value: string | number
@@ -6,11 +9,13 @@ declare interface Token {
 
 export function Lexer(input: string) {
     /*
+    In our SimplestProgrammingLanguage, we are only going to work
+    with keywords and numbers.
     For Example let's say that the input string is add 2 3
 
     add 2 3
     here
-    add is an operator
+    add is an keyword
     2 is a number
     3 is a number
 
@@ -18,7 +23,7 @@ export function Lexer(input: string) {
     so we are going to return an array of tokens
     [
         {
-            type: 'operator',
+            type: 'keyword',
             value: 'add'
         },
         {
@@ -61,19 +66,17 @@ export function Lexer(input: string) {
         if (isNumber(lex)) {
             tokens.push({
                 type: 'number',
+                // converting the lex (string) to a number
                 value: +lex
             })
         } else {
             tokens.push({
-                type: 'operator',
+                type: 'keyword',
                 value: lex
             })
         }
     }
     
+    // Finally we are going to return the tokens array
     return tokens
 }
-
-
-
- 
