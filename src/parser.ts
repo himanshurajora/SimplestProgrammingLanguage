@@ -7,6 +7,63 @@ declare interface Node {
     expr?: Node[]
 }
 
+/*
+    This is the parser
+    It will take an array of tokens and return an AST
+    The AST will be a tree of nodes
+
+    Let's understand the AST first
+    The AST is a tree of nodes
+    Each node will have a type and a value and expression if conditions are met
+    For example:
+    Let's say that the input string is add 2 3
+    so the tokens array will be (as I have already explained in the lexer)
+    [
+        {
+            type: 'keyword',
+            value: 'add'
+        },
+        {
+            type: 'number',
+            value: 2
+        },
+        {
+            type: 'number',
+            value: 3
+        }
+    ]
+    
+    If we pass this array of tokens to the parser
+    it will return an AST
+    For doing this we are going to use a recursive function
+    we will start with the first token in the array
+    if the token is a number
+    we will create a node with the type 'number' and the value of the token
+    if the token is a keyword
+    we will create a node with the type 'keyword' and the value of the token
+    and for expressions array we will call the parser recursively
+
+    So the AST will be:
+    {
+        type: 'add',
+        value: 'add',
+        expr: [
+            {
+                type: 'number',
+                value: 2
+            },
+            {
+                type: 'number',
+                value: 3
+            }
+        ]
+    }
+    So the AST is a tree of nodes
+
+    Now let's write the parser
+
+*/
+
 // This is the parse function that will take an array of tokens
 // and return an AST (Abstract Syntax Tree)
 export function Parser(token: Token[]){
