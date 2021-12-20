@@ -2,7 +2,7 @@
 // This contains the token type and the lexeme (the actual value)
 // It can also contain the start index and the end index of the token
 // But as it is a simple compiler, we don't need to store these values
-declare interface Token {
+export declare interface Token {
     type: string
     value: string | number
 }
