@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "npx jest index.test.js",
+    "test": "npx jest ./dist/index.test.js",
     "compiler": "npx ./dist/compiler.js"
   },
   "author": "",

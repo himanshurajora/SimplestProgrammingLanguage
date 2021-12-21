@@ -1,7 +1,7 @@
 "use strict";
-const { Lexer } = require("./dist/lexer");
-const { Parser } = require("./dist/parser");
-const { Transpiler } = require("./dist/transpiler");
+const { Lexer } = require("./lexer");
+const { Parser } = require("./parser");
+const { Transpiler } = require("./transpiler");
 // Lexer Tests
 test('The Test of Lexing add 2 3', () => {
     expect(Lexer('add 2 3')).toEqual([
