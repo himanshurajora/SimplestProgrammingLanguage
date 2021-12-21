@@ -77,6 +77,15 @@ I can also call this project Simplest Compiler.
 - It will use Node.js.
 - We will enjoy the process of writing the compiler.
 
+### Getting Started
+
+- Clone the repository.
+- Install the dependencies with ``` pnpm install ``` OR ``` npm install ```
+
+- For Testing you can run ``` npm run test ``` OR ``` pnpm test ```
+- You 
+
+
 #### And My Name is -  Himanshu Jangid /AKA/ Vedik Dev.
 
 

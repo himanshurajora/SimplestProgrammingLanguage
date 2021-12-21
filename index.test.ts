@@ -118,31 +118,61 @@ test('The test of transpiling add 2 3', () => {
 test('The test of transpiling sub 8 add 2 4 2', () => {
     expect(Transpiler({
         type: 'keyword',
-        value: 'sub',
+        value: 'add',
         expr: [
             {
                 type: 'number',
-                value: 8
+                value: 2
+            },
+            {
+                type: 'number',
+                value: 3
+            },
+            {
+                type: 'number',
+                value: 4
             },
             {
                 type: 'keyword',
-                value: 'add',
+                value: 'sub',
                 expr: [
                     {
                         type: 'number',
-                        value: 2
+                        value: 5
                     },
                     {
                         type: 'number',
-                        value: 4
+                        value: 6
                     },
                     {
-                        type: 'number',
-                        value: 2
+                        type: 'keyword',
+                        value: 'mul',
+                        expr: [
+                            {
+                                type: 'number',
+                                value: 7
+                            },
+                            {
+                                type: 'number',
+                                value: 8
+                            }
+                        ]
                     }
                 ]
             }
         ]
-    })).toEqual('(8 - (2 + (4 + 2)))');
+    })).toEqual('(2 + 3 + 4 + (5 - 6 - (7 * 8)))');
 });
 
+// Final Test
+test('Full compilation of add 2 3 mul 5 5 sub 2 3 div 1 4', () => {
+    expect(
+        Transpiler(
+            Parser(
+                Lexer(
+                    'add 2 3 mul 5 5 sub 2 3 div 1 4'
+                )
+            )
+        )
+    ).toEqual('(2 + 3 + (5 * 5 * (2 - 3 - (1 / 4))))');
+});

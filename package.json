@@ -4,7 +4,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "pnpm jest index.test.js"
+    "test": "npx jest index.test.js",
+    "compiler": "npx ./dist/compiler.js"
   },
   "author": "",
   "license": "ISC",

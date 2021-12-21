@@ -126,28 +126,3 @@ export function Parser(token: Token[]) : ASTNode {
     // and get the root node
     return parseExpr()
 }
-
-var output = Parser([
-    {
-        type: 'keyword',
-        value: 'add'
-    },
-    {
-        type: 'number',
-        value: 2
-    },
-    {
-        type: 'number',
-        value: 3
-    },
-    {
-        type: 'keyword',
-        value: 'mul'
-    },
-    {
-        type: 'number',
-        value: 4
-    },
-])
-
-console.log(output)
