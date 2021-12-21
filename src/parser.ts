@@ -1,10 +1,10 @@
 import { Token } from "./lexer"
 
 // interface for parsing nodes
-declare interface Node {
+export declare interface ASTNode {
     type: string
     value: string | number
-    expr?: Node[]
+    expr?: ASTNode[]
 }
 
 /*
@@ -66,7 +66,7 @@ declare interface Node {
 
 // This is the parse function that will take an array of tokens
 // and return an AST (Abstract Syntax Tree)
-export function Parser(token: Token[]){
+export function Parser(token: Token[]) : ASTNode {
 
     // We set current to 0 because we want to start from the first token
     let current = 0
@@ -77,7 +77,7 @@ export function Parser(token: Token[]){
     let consume = (): Token => token[current++]
 
     // this the the parseExpr function that will parse the expression based on the grammar
-    let parseExpr = () : Node => {
+    let parseExpr = () : ASTNode => {
         // if the current token's type is number then we will return a node with type number and value of the token
         if(peek().type === 'number'){
             return parseNumber()
@@ -88,7 +88,7 @@ export function Parser(token: Token[]){
     }
 
     // this is the parseNumber function and it will simply return a node with type number and value of the token
-    let parseNumber = (): Node => {
+    let parseNumber = (): ASTNode => {
         return {
             type: 'number',
             value: consume().value
@@ -100,7 +100,7 @@ export function Parser(token: Token[]){
     // a keyword might be add, mul, sub or div
     // so we will return a node with type keyword and value of the token
     // and expression will be an empty array
-    let parseKeyword = () : Node => {
+    let parseKeyword = () : ASTNode => {
         // consume the current token and point current to the next token
         var token = consume()
         let node = {
@@ -108,7 +108,7 @@ export function Parser(token: Token[]){
             value: token.value,
             // right now expr is empty
             // let's see what happens later
-            expr: <Node[]>[]
+            expr: <ASTNode[]>[]
         }
         // now (while) will run until we reach the end of the token array
         // everything after a keywork will be an expression and will be added to the expression array

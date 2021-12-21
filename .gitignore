@@ -3,3 +3,4 @@ dist
 @types
 *.js
 *.js.map
+!index.text.js
