@@ -57,6 +57,7 @@ export function Lexer(input: string) {
         return /^[0-9]+$/.test(lex)
     }
 
+    // this function detect if the lex is a valid keyword
     function isValidKeyword(lex: string) {
         return /^(add|sub|mul|div)$/.test(lex)
     }
