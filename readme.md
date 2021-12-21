@@ -81,11 +81,13 @@ I can also call this project Simplest Compiler.
 
 - Clone the repository.
 - Install the dependencies with ``` pnpm install ``` OR ``` npm install ```
-
+- Then Compile the typescript code using the command ``` tsc ``` (Make sure you have installed the typescript compiler using ``` npm i -g tsc ``` OR ``` pnpm i -g tsc ```) otherwise try with ``` npx tsc ```
 - For Testing you can run ``` npm run test ``` OR ``` pnpm test ```
-- You 
+- To use the compiler run the command ``` npm run compiler "<The Input String in double quotes>"``` OR ``` pnpm run compiler "<The Input String in double quotes>"```
 
+- Example : ``` npm run compiler "add 1 2" ```, The output for this will be ``` (2 + 3)   ```   
 
+### Stuff Finished 😮‍💨
 #### And My Name is -  Himanshu Jangid /AKA/ Vedik Dev.
 
 
@@ -100,7 +102,4 @@ I Love You All.
 *** 
 There may be some updates in the future.
 ***
-
-My Dream is to Be A Teacher Right Now.
-
 
