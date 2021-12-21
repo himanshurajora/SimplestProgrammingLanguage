@@ -56,6 +56,10 @@ export function Lexer(input: string) {
     function isNumber(lex: string) {
         return /^[0-9]+$/.test(lex)
     }
+
+    function isValidKeyword(lex: string) {
+        return /^(add|sub|mul|div)$/.test(lex)
+    }
     
     // Now we are going to iterate over the array of lexes
     // and for each lex we are going to check if it is a valid lex
@@ -70,10 +74,14 @@ export function Lexer(input: string) {
                 value: +lex
             })
         } else {
-            tokens.push({
-                type: 'keyword',
-                value: lex
-            })
+            if(isValidKeyword(lex)){
+                tokens.push({
+                    type: 'keyword',
+                    value: lex
+                })
+            }else{
+                throw new Error(`Error: Invalid Token/Lex: "${lex}"`)
+            }
         }
     }
     

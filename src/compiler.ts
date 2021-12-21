@@ -6,8 +6,14 @@ const input = process.argv[2];
 
 const compile = () => {
     console.log(`The Input Is:  ${input}\n`);
+    let output = ''
     console.time("Time Taken");
-    const output = Transpiler(Parser(Lexer(input)));
+    try{
+        output = Transpiler(Parser(Lexer(input)));
+    }catch(e:any){
+        console.log(e.message);
+        output = e.message;
+    }
     console.timeEnd("Time Taken");
     console.log('\n---------Output----------\n');
     console.log(output + "\n");
